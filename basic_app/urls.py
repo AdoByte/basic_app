@@ -6,5 +6,5 @@ app_name = 'basic_app'
 
 
 urlpatterns = [
-    urls(r'^register/$', views.register, name='register')
+    url(r'^register/$', views.register, name='register')
 ]
