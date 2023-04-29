@@ -29,6 +29,10 @@ def register(request):
                 profile.profile_pic = request.FILES['profile_pic']
 
                 profile.save()
+                
+            registered = True
+
+
         else:
             print(user_form.errors, profile_form.errors)
 
@@ -37,8 +41,7 @@ def register(request):
         profile_form = UserInfoForm()
 
     
-    return render(request, 'basic_app/registration.html', {'user_form':user_form,
-                                                            'profile_form':profile_form, 
-                                                            'regidtered':registered
-    })
-    
+    return render(request, 'basic_app/registration.html',
+                            {'user_form':user_form,
+                            'profile_form':profile_form, 
+                            'registered':registered})
