@@ -1,4 +1,4 @@
-from django.contrib.auth import autheticate,login,logout
+from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.shortcuts import render
 from basic_app.forms import UserForm, UserInfoForm
@@ -38,8 +38,6 @@ def user_login(request):
             return HttpResponse("Invalid login details")
     else:
         return render(request, 'basic_app/login.html', {})
-
-
 
 
 def register(request):
