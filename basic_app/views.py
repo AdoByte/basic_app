@@ -14,15 +14,12 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-@login_required
-def special(request):
-    return render(request, 'basic_app/special.html', {})
 
 def user_login(request):
 
     if request.method == "POST":
-        username = request.POST.get(username)
-        password = request.POST.get(password)
+        username = request.POST.get('username')     #username in quotes
+        password = request.POST.get('password')     #password in quotes
 
         user = authenticate(username=username, password=password)
 
