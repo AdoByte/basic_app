@@ -13,7 +13,9 @@ def index(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
-
+@login_required
+def special(request):
+    return render(request, 'basic_app/special.html', {})
 
 def user_login(request):
 
@@ -26,7 +28,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('index'))    #There should then be a logic in the html file (or somewhere) that allows its display when it's required or the other part displaying when that is required
             else:
                 return HttpResponse("Account Not Active")
         else:
