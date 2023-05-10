@@ -13,15 +13,17 @@
             <ul class = "nav navbar-nav">
                 <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
                 <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-                <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a></li>
-                <!-- {% if user.is_authenticated %} -->
+                
+                {% if user.is_authenticated %}
                 <li><a class="navbar-link" href="{% url 'user_logout' %}">Logout</a></li>
                     <!-- Note that user_logout is not in 'basic_app' -->
                 <li><a class="navbar-link" href="{% url 'basic_app:special' %}">Special</a></li>
 
-                <!-- {% else %} -->
+                {% else %}
+                <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a></li>
                 <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
-                <!-- {% endif %} -->
+                {% endif %}
+                <!-- The commented out logics seem have to worked. Most likely due to the use of "login_required" with the views  -->
             </ul>
         </div>
     </nav>
